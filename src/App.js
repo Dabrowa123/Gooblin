@@ -1,6 +1,10 @@
 import React from "react";
 import "./App.css";
 import Nav from "./Components/Nav/Nav.js";
+import Search from "./Components/Nav/Nav.js";
+import LoginView from "./Components/Nav/Nav.js";
+import AddTicket from "./Components/Nav/Nav.js";
+import ViewTicket from "./Components/Nav/Nav.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
