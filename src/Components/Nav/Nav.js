@@ -1,11 +1,25 @@
 import React from "react";
 import "./Nav.css";
-import { Link } from "react-router-dom";
+import * as icon from "../../assets/icons/index.js";
+// import { Link } from "react-router-dom";
 
 function Nav() {
   return (
     <nav className="nav">
-      <div className="container"></div>
+      <div className="container">
+        <button
+          type="button"
+          className="btn btn-login btn-success"
+          data-bs-toggle="button"
+        >
+          Log In
+          <img className="icon-login" src={icon.login} alt="login icon" />
+        </button>
+        <button type="button" className="btn btn-add-ticket btn-outline-dark">
+          Create Ticket
+          <img className="icon-plus" src={icon.plus} alt="plus icon" />
+        </button>
+      </div>
     </nav>
   );
 }
