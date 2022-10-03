@@ -9,13 +9,16 @@ function Nav() {
       <div className="container">
         <button
           type="button"
-          className="btn btn-login btn-success"
+          className="btn btn-login btn-dark btn-lg"
           data-bs-toggle="button"
         >
           Log In
           <img className="icon-login" src={icon.login} alt="login icon" />
         </button>
-        <button type="button" className="btn btn-add-ticket btn-outline-dark">
+        <button
+          type="button"
+          className="btn btn-add-ticket btn-outline-dark btn-lg"
+        >
           Create Ticket
           <img className="icon-plus" src={icon.plus} alt="plus icon" />
         </button>
