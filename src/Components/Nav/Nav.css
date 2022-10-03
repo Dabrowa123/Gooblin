@@ -1,41 +1,53 @@
 .nav {
-  height: 80px;
-  background-color: black;
-  color: white;
+  height: 100px;
+  margin: 30px 0;
 }
 
 .nav .container {
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
-.nav a {
-  font-size: 130%;
-  font-weight: 500;
-  text-decoration: none;
-  color: white;
+.nav button {
+  margin: 0 15px;
+  font-weight: 600;
 }
 
-.nav__logo {
-  width: 140px;
+.btn-login {
+  padding-top: 8px;
 }
 
-.nav__search input {
-  height: 30px;
-  border: none;
-  border-radius: 8px;
+.btn-login:hover {
+  background-color: white;
+  color: black;
 }
 
-.nav__search button {
-  height: 30px;
-  padding: 5px;
-  border-radius: 8px;
+.btn-login:hover .icon-login {
+  filter: contrast(100%);
 }
 
-.nav__search input,
-.nav__search button {
-  height: 30px;
-  padding: 3px 5px;
+.btn-add-ticket {
+  padding-top: 8px;
+}
+
+.btn-add-ticket:hover .icon-plus {
+  filter: invert(100%);
+}
+
+.icon-login {
+  height: 27px;
+  width: auto;
+  filter: invert(100%);
+  padding-bottom: 3px;
+  margin-left: 10px;
+}
+
+.icon-plus {
+  height: 23px;
+  width: auto;
+  filter: invert(5%);
+  padding-bottom: 3.5px;
+  margin-left: 10px;
 }

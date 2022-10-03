@@ -1,59 +1,48 @@
 import React from "react";
-import * as icon from "../../assets/icons/index.js";
-import "./HeroSimplified.css";
-import { Link } from "react-router-dom";
+import "./Search.css";
 
-function HeroSimplified({ name, imgUrl, powerstats, id }) {
+function Search() {
   return (
-    <div className="featured__hero">
-      <h2>{name}</h2>
-      <Link to={`/hero/${id}`}>
-        <img className="featured__hero__img" src={imgUrl} alt={`${name}`}></img>
-      </Link>
-      <div className="featured__hero__stats">
-        <div>
-          <img
-            className="featured__hero__stats__icon"
-            src={icon.combat}
-            alt="combat icon"
-          />
-          <p>{powerstats.combat}</p>
-        </div>
-        <div>
-          <img
-            className="featured__hero__stats__icon"
-            src={icon.durability}
-            alt="durability icon"
-          />
-          <p>{powerstats.durability}</p>
-        </div>
-        <div>
-          <img
-            className="featured__hero__stats__icon"
-            src={icon.intelligence}
-            alt="intelligence icon"
-          />
-          <p>{powerstats.intelligence}</p>
-        </div>
-        <div>
-          <img
-            className="featured__hero__stats__icon"
-            src={icon.speed}
-            alt="combat speed"
-          />
-          <p>{powerstats.speed}</p>
-        </div>
-        <div>
-          <img
-            className="featured__hero__stats__icon"
-            src={icon.strength}
-            alt="strength icon"
-          />
-          <p>{powerstats.strength}</p>
-        </div>
-      </div>
+    <div>
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Ticket Name</div>
+            Description
+          </div>
+          <span class="badge bg-status-active rounded-pill">Active</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Ticket Name</div>
+            Description
+          </div>
+          <span class="badge bg-status-active rounded-pill">Active</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Ticket Name</div>
+            Description
+          </div>
+          <span class="badge bg-status-active rounded-pill">Active</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Ticket Name</div>
+            Description
+          </div>
+          <span class="badge bg-status-active rounded-pill">Active</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Ticket Name</div>
+            Description
+          </div>
+          <span class="badge bg-status-closed rounded-pill">Closed</span>
+        </li>
+      </ol>
     </div>
   );
 }
 
-export default HeroSimplified;
+export default Search;
