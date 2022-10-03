@@ -1,13 +1,24 @@
+.search__bar {
+  display: flex;
+  gap: 40px;
+  margin: 0 70px 70px 70px;
+  padding-bottom: 30px;
+}
+
+.btn {
+  width: 200px;
+}
+
 .bg-status-active {
   color: black;
   background-color: white;
-  border: solid 0.01px burlywood;
+  border: solid 0.01px var(--theme-1);
 }
 
 .bg-status-closed {
   color: white;
-  background-color: #0f2140;
-  border: solid 0.01px burlywood;
+  background-color: var(--theme-2);
+  border: solid 0.01px;
 }
 
 .list-group {
