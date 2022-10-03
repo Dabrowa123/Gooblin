@@ -1,6 +1,5 @@
 import React from "react";
 import "./Nav.css";
-import * as icon from "../../assets/icons/index.js";
 // import { Link } from "react-router-dom";
 
 function Nav() {
@@ -9,7 +8,7 @@ function Nav() {
       <div className="container">
         <button
           type="button"
-          className="btn btn-login btn-dark btn-lg"
+          className="btn btn-theme-2 btn-dark btn-lg"
           data-bs-toggle="button"
         >
           Log In <i class="bi bi-box-arrow-in-right"></i>

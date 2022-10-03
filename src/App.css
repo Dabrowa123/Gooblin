@@ -27,9 +27,15 @@ section {
   margin: 0 auto;
 }
 
-button {
-  font-weight: 600;
-  height: 50px;
+.btn {
+  font-weight: 600 !important;
+  height: 50px !important;
+  border: solid 2px var(--theme-1) !important;
+}
+
+.btn-theme-2:hover {
+  background-color: white !important;
+  color: var(--theme-2) !important;
 }
 
 .bi {
