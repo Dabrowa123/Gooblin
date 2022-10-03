@@ -12,11 +12,6 @@
 
 .nav button {
   margin: 0 15px;
-  font-weight: 600;
-}
-
-.btn-login {
-  padding-top: 8px;
 }
 
 .btn-login:hover {
@@ -24,30 +19,10 @@
   color: black;
 }
 
-.btn-login:hover .icon-login {
-  filter: contrast(100%);
+.bi-box-arrow-in-right {
+  -webkit-text-stroke: 0.1px;
 }
 
-.btn-add-ticket {
-  padding-top: 8px;
-}
-
-.btn-add-ticket:hover .icon-plus {
-  filter: invert(100%);
-}
-
-.icon-login {
-  height: 27px;
-  width: auto;
-  filter: invert(100%);
-  padding-bottom: 3px;
-  margin-left: 10px;
-}
-
-.icon-plus {
-  height: 23px;
-  width: auto;
-  filter: invert(5%);
-  padding-bottom: 3.5px;
-  margin-left: 10px;
+.bi-plus-circle {
+  -webkit-text-stroke: 1px;
 }

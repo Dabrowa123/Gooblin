@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 body {
   font-family: "Nunito", sans-serif;
@@ -24,6 +25,15 @@ section {
 .container {
   width: 96%;
   margin: 0 auto;
+}
+
+button {
+  font-weight: 600;
+  height: 50px;
+}
+
+.bi {
+  margin-left: 4px;
 }
 
 @media (min-width: 768px) {

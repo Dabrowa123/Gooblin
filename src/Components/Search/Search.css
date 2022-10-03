@@ -1,3 +1,14 @@
+.search__bar {
+  display: flex;
+  gap: 40px;
+  margin: 0 70px 70px 70px;
+  padding-bottom: 30px;
+}
+
+.btn {
+  width: 200px;
+}
+
 .bg-status-active {
   color: black;
   background-color: white;
