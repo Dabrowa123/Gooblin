@@ -1,5 +1,6 @@
 import React from "react";
 import "./AddTicket.css";
+import { Link } from "react-router-dom";
 
 function AddTicket() {
   return (
@@ -28,13 +29,15 @@ function AddTicket() {
         >
           Save
         </button>
-        <button
-          type="button"
-          className="btn btn-theme-1 btn-dark btn-lg"
-          data-bs-toggle="button"
-        >
-          Cancel
-        </button>
+        <Link to={"/"}>
+          <button
+            type="button"
+            className="btn btn-theme-1 btn-dark btn-lg"
+            data-bs-toggle="button"
+          >
+            Cancel
+          </button>
+        </Link>
       </div>
     </div>
   );
