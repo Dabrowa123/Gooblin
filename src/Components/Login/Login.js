@@ -1,8 +1,8 @@
 import React from "react";
 import "./Login.css";
 
-function Link() {
+function Login() {
   return <div></div>;
 }
 
-export default Link;
+export default Login;
