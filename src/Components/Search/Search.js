@@ -7,7 +7,7 @@ function Search() {
       <div class="mb-3 search__bar">
         <button
           type="button"
-          className="btn btn-theme-2 btn-dark btn-lg"
+          className="btn btn-theme-2 btn-outline-dark btn-lg"
           data-bs-toggle="button"
         >
           Search <i class="bi bi-search"></i>

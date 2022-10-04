@@ -15,7 +15,7 @@ function Nav() {
         </button>
         <button
           type="button"
-          className="btn btn-add-ticket btn-outline-dark btn-lg"
+          className="btn btn-theme-1 btn-outline-dark btn-lg"
         >
           Create Ticket <i class="bi bi-plus-circle"></i>
         </button>
