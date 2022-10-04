@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Login.css";
+import "./Login.css";
 
 function Link() {
   return <div></div>;
