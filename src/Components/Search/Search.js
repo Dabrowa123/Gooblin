@@ -1,7 +1,10 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
+import { fetchTicketsArray } from "../../requests.js";
 import "./Search.css";
 
 function Search() {
+  const tickedList = fetchTicketsArray();
+
   return (
     <div>
       <div class="mb-3 search__bar">
@@ -12,6 +15,7 @@ function Search() {
         >
           Search <i class="bi bi-search"></i>
         </button>
+
         <input
           type="email"
           class="form-control form-control-lg"
@@ -19,6 +23,7 @@ function Search() {
           placeholder="Write ticket's name"
         ></input>
       </div>
+
       <div>
         <ol class="list-group list-group-numbered">
           <li class="list-group-item d-flex justify-content-between align-items-start">
