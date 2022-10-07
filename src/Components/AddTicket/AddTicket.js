@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./AddTicket.css";
 import { Link } from "react-router-dom";
-// import createTicket from "../../requests.js";
-import axios from "axios";
-import { fetchTicketsArray } from "../../requests.js";
+import { fetchTicketsArray, sendPutRequest } from "../../requests.js";
 
 function AddTicket() {
 
@@ -29,8 +27,7 @@ function AddTicket() {
       "id": id,
       "status": "open"} );
 
-    await axios.put(`https://goobl.in/api/ticket`, data)
-    .then(res => console.log('Puting data', res)).catch(err => console.log(err));
+    await sendPutRequest(data);
   }
 
   return (
