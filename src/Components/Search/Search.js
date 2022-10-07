@@ -3,23 +3,24 @@ import { fetchTicketsArray } from "../../requests.js";
 import "./Search.css";
 
 function Search() {
-  
+
   useEffect(() => {
     fetchAndRenderTicketsList();
   }, []);
 
   const [ticketsList, setTicketsList] = useState([]);
-  const [thereIsNoTicket, setThereIsNoTicket] = useState([true]);
+  const [thereIsNoTicket, setThereIsNoTicket] = useState(true);
 
   const fetchAndRenderTicketsList = async () => {
     const data = await fetchTicketsArray();
     await setTicketsList(data);
-    if (ticketsList.length > 0 || data.length === undefined) {
+    if (ticketsList.length > 0) {
       setThereIsNoTicket(false);
+    } else {
+      setThereIsNoTicket(true);
     }
   };
-
-
+  
   return (
     <div>
       <div class="mb-3 search__bar">
@@ -41,7 +42,7 @@ function Search() {
 
       <div>
         <ol class="list-group list-group-numbered">
-          {thereIsNoTicket &&
+          {!thereIsNoTicket &&
             (ticketsList.map((ticket) => (
               <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
@@ -51,7 +52,7 @@ function Search() {
                 <span class="badge bg-status-active rounded-pill">Active</span>
               </li>
             )))}{" "}
-          {!thereIsNoTicket && (<p>There are no tickets yet</p>)}
+          {thereIsNoTicket && (<p>There are no tickets yet</p>)}
         </ol>
       </div>
     </div>
