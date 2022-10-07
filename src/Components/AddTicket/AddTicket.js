@@ -24,16 +24,14 @@ function AddTicket() {
   // };
   };
   
-
   console.log(id);
 
-  const putData = (e) => {
-    e.preventDefaut();
-    console.log( {"title": `${title}`,
+  const putData = () => {
+    const data = JSON.stringify( {"title": `${title}`,
       "description": `${description}`,
       "id": id,
       "status": "open"} );
-
+      console.log(data);
     // Axios.put(`https://goobl.in/api/ticket`, {
     //   "title": `${title}`,
     //   "description": `${description}`,
@@ -45,6 +43,7 @@ function AddTicket() {
   return (
     <div className="addTicket">
       <h2>Create Ticket</h2>
+      <form>
       <div class="input-group mb-3">
         <input
           type="text"
@@ -83,6 +82,7 @@ function AddTicket() {
           </button>
         </Link>
       </div>
+      </form>
     </div>
   );
 }
