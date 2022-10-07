@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./AddTicket.css";
 import { Link } from "react-router-dom";
 // import createTicket from "../../requests.js";
-// import { Axios } from "axios";
-// import { fetchTicketsArray } from "../../requests.js";
+import axios from "axios";
+import { fetchTicketsArray } from "../../requests.js";
 
 function AddTicket() {
 
@@ -16,28 +16,21 @@ function AddTicket() {
   }, []);
 
   const createId = async () => {
-    await setId(1);
-
-  //   const data = await fetchTicketsArray();
-  //   const avaliableId = await data.length + 1;
-  //   await setId(avaliableId);
-  // };
+    const request = await fetchTicketsArray();
+    const avaliableId = await request.data.length + 1;
+    await setId(avaliableId);
   };
   
   console.log(id);
 
-  const putData = () => {
-    const data = JSON.stringify( {"title": `${title}`,
+  const putData = async () => {
+    const data = await JSON.stringify( {"title": `${title}`,
       "description": `${description}`,
       "id": id,
       "status": "open"} );
-      console.log(data);
-    // Axios.put(`https://goobl.in/api/ticket`, {
-    //   "title": `${title}`,
-    //   "description": `${description}`,
-    //   "id": id,
-    //   "status": `open`
-    // }).then(res => console.log('Puting data', res)).catch(err => console.log(err));
+
+    await axios.put(`https://goobl.in/api/ticket`, data)
+    .then(res => console.log('Puting data', res)).catch(err => console.log(err));
   }
 
   return (
