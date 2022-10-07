@@ -12,8 +12,8 @@ function Search() {
   const [thereIsNoTicket, setThereIsNoTicket] = useState(true);
 
   const fetchAndRenderTicketsList = async () => {
-    const data = await fetchTicketsArray();
-    await setTicketsList(data);
+    const request = await fetchTicketsArray();
+    await setTicketsList(request.data);
     if (ticketsList.length > 0) {
       setThereIsNoTicket(false);
     } else {
