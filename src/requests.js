@@ -5,3 +5,9 @@ export const fetchTicketsArray = async () => {
 
   return data;
 };
+
+// export const createTicket = async (data) => {
+  // const data = await axios.put(`https://goobl.in/api/ticket`);
+
+  // return data;
+// };
