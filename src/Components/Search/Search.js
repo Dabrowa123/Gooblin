@@ -4,23 +4,27 @@ import "./Search.css";
 
 function Search() {
 
-  useEffect(() => {
-    fetchAndRenderTicketsList();
-  }, []);
-
+  
   const [ticketsList, setTicketsList] = useState([]);
   const [thereIsNoTicket, setThereIsNoTicket] = useState(true);
-
-  const fetchAndRenderTicketsList = async () => {
-    const request = await fetchTicketsArray();
-    await setTicketsList(request.data);
-    if (ticketsList.length > 0) {
-      setThereIsNoTicket(false);
-    } else {
-      setThereIsNoTicket(true);
-    }
-  };
   
+
+  useEffect(() => {
+    const fetchAndRenderTicketsList = async () => {
+      const request = await fetchTicketsArray();
+      const data = await request.data;
+      setTicketsList(data);
+  
+      if (ticketsList.length > 0) {
+        setThereIsNoTicket(false);
+      } else {
+        setThereIsNoTicket(true);
+      }
+    };
+
+    fetchAndRenderTicketsList();
+  }, [ticketsList]);
+
   return (
     <div>
       <div class="mb-3 search__bar">

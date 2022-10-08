@@ -39,14 +39,16 @@ function AddTicket() {
         ></textarea>
       </div>
       <div className="addTicket__buttons-area">
-        <button
-          type="button"
-          onClick={putData}
-          className="btn btn-theme-2 btn-dark btn-lg"
-          data-bs-toggle="button"
-        >
-          Save
-        </button>
+        <Link to={"/"}>
+          <button
+            type="button"
+            onClick={putData}
+            className="btn btn-theme-2 btn-dark btn-lg"
+            data-bs-toggle="button"
+          >
+            Save
+          </button>
+        </Link>
         <Link to={"/"}>
           <button
             type="button"
