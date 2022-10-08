@@ -1,31 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./AddTicket.css";
 import { Link } from "react-router-dom";
-import { fetchTicketsArray, sendPutRequest } from "../../requests.js";
+import { sendPutRequest } from "../../requests.js";
 
 function AddTicket() {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [id, setId] = useState('');
-
-  useEffect(() => {
-    createId();
-  }, []);
-
-  const createId = async () => {
-    const request = await fetchTicketsArray();
-    const avaliableId = await request.data.length + 1;
-    await setId(avaliableId);
-  };
-  
-  console.log(id);
 
   const putData = async () => {
-    const data = await JSON.stringify( {"title": `${title}`,
-      "description": `${description}`,
-      "id": id,
-      "status": "open"} );
+    const data = await {"title": `${title}`,
+      "description": `${description}`};
 
     await sendPutRequest(data);
   }
