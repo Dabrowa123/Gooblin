@@ -11,8 +11,7 @@ function Search() {
   }, []);
 
   const fetchAndRenderTicketsList = async () => {
-    const request = await fetchTicketsArray();
-    const data = request.data;
+    const data = await fetchTicketsArray();
     setTicketsList(data);
   };
 
