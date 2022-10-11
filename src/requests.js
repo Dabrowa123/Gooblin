@@ -1,13 +1,15 @@
-import axios from "axios";
-
 export const fetchTicketsArray = async () => {
-  const data = await axios.get(`https://goobl.in/api/tickets`);
-
-  return data;
+  const resp = await fetch(`https://goobl.in/api/tickets`);
+  return await resp.json();
 };
 
 export const sendPutRequest = (data) => {
-  axios.put('https://goobl.in/api/ticket', data)
-  .catch(err => console.log(err));
+  const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  };
+  
+  fetch('https://goobl.in/api/ticket', requestOptions);
 };
 
