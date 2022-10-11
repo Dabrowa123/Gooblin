@@ -8,5 +8,6 @@ export const fetchTicketsArray = async () => {
 
 export const sendPutRequest = (data) => {
   axios.put('https://goobl.in/api/ticket', data)
-  .then(res => console.log('Puting data', res)).catch(err => console.log(err));
+  .catch(err => console.log(err));
 };
+
