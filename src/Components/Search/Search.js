@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { fetchTicketsArray } from "../../requests.js";
+import { Link } from "react-router-dom";
 import "./Search.css";
 
 function Search() {
@@ -39,10 +40,12 @@ function Search() {
             {ticketsList.map((ticket) => (
               <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
-                  <div class="fw-bold">{ticket.title}</div>
+                  <div class="fw-bold">{ticket.title}<span class="badge bg-status-active rounded-pill">{ticket.status}</span></div>
                   {ticket.description}
                 </div>
-                <span class="badge bg-status-active rounded-pill">Active</span>
+                <Link to={`/viewticket/${ticket.id}`}>
+                <button>View</button>
+                </Link>
               </li>
             ))}
         </ol>

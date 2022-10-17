@@ -3,6 +3,11 @@ export const fetchTicketsArray = async () => {
   return await resp.json();
 };
 
+export const getTickedDetails = async (id) => {
+  const resp = await fetch(`https://goobl.in/api/ticket/${id}`);
+  return await resp.json();
+}
+
 export const sendPutRequest = (data) => {
   const requestOptions = {
     method: 'PUT',

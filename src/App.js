@@ -20,7 +20,7 @@ function App() {
               <Route path="/" element={<Search />} />
               <Route path="/login" element={<Login />} />
               <Route path="/addticket" element={<AddTicket />} />
-              <Route path="/viewticket" element={<ViewTicket />} />
+              <Route path="/viewticket/:id" element={<ViewTicket />} />
             </Routes>
           </div>
         </main>
