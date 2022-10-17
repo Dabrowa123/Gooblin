@@ -57,7 +57,7 @@ function EditTicket() {
         ></textarea>
       </div>
       <div className="addTicket__buttons-area">
-        <Link to={"/"}>
+        <Link to={`/viewticket/${id}`}>
           <button
             type="button"
             onClick={postData}
