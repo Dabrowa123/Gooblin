@@ -18,6 +18,23 @@ export const sendPutRequest = (data) => {
   fetch('https://goobl.in/api/ticket', requestOptions);
 };
 
+export const sendPostRequest = (data, id) => {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  };
+  
+  fetch(`https://goobl.in/api/ticket/${id}`, requestOptions).then(res => {
+    if (res.ok) { console.log("HTTP request successful") }
+    else { console.log("HTTP request unsuccessful") }
+    return res
+  })
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(error => console.log(error));;
+};
+
 export const deleteRequest = (id) => {
   console.log(id);
   const requestOptions = {
@@ -29,8 +46,8 @@ export const deleteRequest = (id) => {
     if (res.ok) { console.log("HTTP request successful") }
     else { console.log("HTTP request unsuccessful") }
     return res
-})
-.then(res => res.json())
-.then(data => console.log(data))
-.catch(error => console.log(error));
+  })
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(error => console.log(error));
 };

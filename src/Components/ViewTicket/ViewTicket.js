@@ -27,13 +27,22 @@ function ViewTicket() {
     <h2>{ticketDetails.title}</h2>
     <br></br>
     <p>{ticketDetails.description}</p>
-    <Link to={"/"}>
+        <Link to={"/"}>
           <button
             type="button"
             className="btn btn-theme-1 btn-dark btn-lg"
             data-bs-toggle="button"
           >
             Go Back
+          </button>
+        </Link>
+        <Link to={`/editticket/${ticketDetails.id}`}>
+          <button
+            type="button"
+            className="btn btn-theme-1 btn-dark btn-lg"
+            data-bs-toggle="button"
+          >
+            Edit Ticket
           </button>
         </Link>
         <Link to={"/"}>
