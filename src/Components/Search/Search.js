@@ -1,19 +1,18 @@
 import { React, useState, useEffect } from "react";
 import { fetchTicketsArray } from "../../requests.js";
-import { Link } from "react-router-dom";
-// import "./Search.css";
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import { useNavigate } from "react-router-dom";
 
 function Search() {
   const [ticketsList, setTicketsList] = useState([]);
@@ -27,9 +26,18 @@ function Search() {
     setTicketsList(data);
   };
 
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <Stack direction="row" justifyContent="center">
+    <Stack alignItems="center">
+      <Stack
+        direction="row"
+        justifyContent="center"
+        sx={{
+          mb: 3,
+          width: "100%",
+        }}
+      >
         <Paper
           component="form"
           sx={{
@@ -39,12 +47,9 @@ function Search() {
             width: "70%",
           }}
         >
-          <IconButton sx={{ p: "10px" }} aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <InputBase
-            sx={{ ml: 1, flex: 1 }}
-            placeholder="Search Tickets"
+            sx={{ ml: 2, flex: 1 }}
+            placeholder="Search Gooblins"
             inputProps={{ "aria-label": "search google maps" }}
           />
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
@@ -53,47 +58,40 @@ function Search() {
           </IconButton>
         </Paper>
       </Stack>
-      {/* <Stack direction="row">
-        <FormControl sx={{ width: "100%" }}>
-          <InputLabel htmlFor="component-outlined">Ticket's Name</InputLabel>
-          <OutlinedInput
-            id="component-outlined"
-            type="text"
-            label="Ticket's Name"
-            color="info"
-          />
-        </FormControl>
-        <Button
-          variant="outlined"
-          size="large"
-          sx={{ ml: 2 }}
-          endIcon={<SearchIcon />}
-        >
-          Search
-        </Button>
-      </Stack> */}
 
-      <div>
-        <ol class="list-group list-group-numbered">
-          {ticketsList.map((ticket) => (
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">
-                  {ticket.title}
-                  <span class="badge bg-status-active rounded-pill">
-                    {ticket.status}
-                  </span>
-                </div>
-                {ticket.description}
-              </div>
-              <Link to={`/viewticket/${ticket.id}`}>
-                <button>View</button>
-              </Link>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </div>
+      <TableContainer component={Paper} sx={{ width: "70%" }}>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="left" width="10%">
+                Application
+              </TableCell>
+              <TableCell align="left" width="80%">
+                Improvement Idea
+              </TableCell>
+              <TableCell align="right" width="10%">
+                Status
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {ticketsList.map((ticket) => (
+              <TableRow
+                key={ticket.title}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                onClick={() => {
+                  navigate(`/viewticket/${ticket.id}`);
+                }}
+              >
+                <TableCell>{ticket.id}</TableCell>
+                <TableCell>{ticket.title}</TableCell>
+                <TableCell align="right">{ticket.status}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Stack>
   );
 }
 
