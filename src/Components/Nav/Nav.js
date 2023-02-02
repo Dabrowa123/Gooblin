@@ -1,7 +1,5 @@
 import React from "react";
 import "./Nav.css";
-import { Link } from "react-router-dom";
-import Stack from "@mui/material/Stack";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -26,10 +24,17 @@ function Nav() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Gooblin
-          </Typography>
+          </IconButton>{" "}
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1 }}
+              onClick={() => {
+                navigate(`/`);
+              }}
+            >
+              Gooblin
+            </Typography>
           <Button
             color="inherit"
             onClick={() => {
@@ -42,25 +47,6 @@ function Nav() {
         </Toolbar>
       </AppBar>
     </Box>
-    // <nav className="nav">
-    //   <div className="container">
-    //     <button
-    //       type="button"
-    //       className="btn btn-theme-2 btn-dark btn-lg"
-    //       data-bs-toggle="button"
-    //     >
-    //       Log In <i class="bi bi-box-arrow-in-right"></i>
-    //     </button>
-    //     <Link to={`/addTicket`}>
-    //       <button
-    //         type="button"
-    //         className="btn btn-theme-1 btn-outline-dark btn-lg"
-    //       >
-    //         Create Ticket <i class="bi bi-plus-circle"></i>
-    //       </button>
-    //     </Link>
-    //   </div>
-    // </nav>
   );
 }
 
