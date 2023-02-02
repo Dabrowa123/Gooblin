@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./EditTicket.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { getTickedDetails } from "../../requests.js";

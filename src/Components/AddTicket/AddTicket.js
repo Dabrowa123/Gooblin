@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import "./AddTicket.css";
+import { useNavigate } from "react-router-dom";
 import { sendPutRequest } from "../../requests.js";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { useNavigate } from "react-router-dom";
 
 function AddTicket() {
   const [title, setTitle] = useState("");
