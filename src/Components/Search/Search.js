@@ -34,6 +34,7 @@ function Search() {
         direction="row"
         justifyContent="center"
         sx={{
+          mt: 5,
           mb: 3,
           width: "100%",
         }}
@@ -70,6 +71,9 @@ function Search() {
                 Improvement Idea
               </TableCell>
               <TableCell align="right" width="10%">
+                Votes
+              </TableCell>
+              <TableCell align="right" width="10%">
                 Status
               </TableCell>
             </TableRow>
@@ -83,8 +87,9 @@ function Search() {
                   navigate(`/viewticket/${ticket.id}`);
                 }}
               >
-                <TableCell>{ticket.id}</TableCell>
+                <TableCell></TableCell>
                 <TableCell>{ticket.title}</TableCell>
+                <TableCell align="right"></TableCell>
                 <TableCell align="right">{ticket.status}</TableCell>
               </TableRow>
             ))}
