@@ -13,6 +13,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { useNavigate } from "react-router-dom";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
 function Search() {
   const [ticketsList, setTicketsList] = useState([]);
@@ -67,30 +69,40 @@ function Search() {
               <TableCell align="left" width="10%">
                 Application
               </TableCell>
-              <TableCell align="left" width="80%">
+              <TableCell align="left" width="60%">
                 Improvement Idea
               </TableCell>
-              <TableCell align="right" width="10%">
+              <TableCell align="center" width="10%">
                 Votes
               </TableCell>
               <TableCell align="right" width="10%">
                 Status
               </TableCell>
+              <TableCell align="left" width="10%"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {ticketsList.map((ticket) => (
               <TableRow
                 key={ticket.title}
+                hover={true}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 onClick={() => {
                   navigate(`/viewticket/${ticket.id}`);
                 }}
               >
-                <TableCell></TableCell>
+                <TableCell>App Name</TableCell>
                 <TableCell>{ticket.title}</TableCell>
-                <TableCell align="right"></TableCell>
+                <TableCell align="right">
+                  <Stack direction="row">
+                    {Math.floor(Math.random() * 10)}
+                    <ThumbUpIcon sx={{ height: 15, ml: 1 }} />
+                  </Stack>
+                </TableCell>
                 <TableCell align="right">{ticket.status}</TableCell>
+                <TableCell>
+                  <VisibilityIcon />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
