@@ -1,10 +1,22 @@
 import { React, useState, useEffect } from "react";
 import { fetchTicketsArray } from "../../requests.js";
-import { Link } from "react-router-dom";
-import "./Search.css";
+import Stack from "@mui/material/Stack";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import { useNavigate } from "react-router-dom";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
 function Search() {
-
   const [ticketsList, setTicketsList] = useState([]);
 
   useEffect(() => {
@@ -16,41 +28,87 @@ function Search() {
     setTicketsList(data);
   };
 
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <div class="mb-3 search__bar">
-        <button
-          type="button"
-          className="btn btn-theme-2 btn-outline-dark btn-lg"
-          data-bs-toggle="button"
+    <Stack alignItems="center">
+      <Stack
+        direction="row"
+        justifyContent="center"
+        sx={{
+          mt: 5,
+          mb: 3,
+          width: "100%",
+        }}
+      >
+        <Paper
+          component="form"
+          sx={{
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "center",
+            width: "70%",
+          }}
         >
-          Search <i class="bi bi-search"></i>
-        </button>
+          <InputBase
+            sx={{ ml: 2, flex: 1 }}
+            placeholder="Search Gooblins"
+            inputProps={{ "aria-label": "search google maps" }}
+          />
+          <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+          <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+            <SearchIcon />
+          </IconButton>
+        </Paper>
+      </Stack>
 
-        <input
-          type="email"
-          class="form-control form-control-lg"
-          id="exampleFormControlInput1"
-          placeholder="Write ticket's name"
-        ></input>
-      </div>
-
-      <div>
-        <ol class="list-group list-group-numbered">
+      <TableContainer component={Paper} sx={{ width: "70%" }}>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="left" width="10%">
+                Application
+              </TableCell>
+              <TableCell align="left" width="60%">
+                Improvement Idea
+              </TableCell>
+              <TableCell align="center" width="10%">
+                Votes
+              </TableCell>
+              <TableCell align="right" width="10%">
+                Status
+              </TableCell>
+              <TableCell align="left" width="10%"></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             {ticketsList.map((ticket) => (
-              <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">{ticket.title}<span class="badge bg-status-active rounded-pill">{ticket.status}</span></div>
-                  {ticket.description}
-                </div>
-                <Link to={`/viewticket/${ticket.id}`}>
-                <button>View</button>
-                </Link>
-              </li>
+              <TableRow
+                key={ticket.title}
+                hover={true}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                onClick={() => {
+                  navigate(`/viewticket/${ticket.id}`);
+                }}
+              >
+                <TableCell>App Name</TableCell>
+                <TableCell>{ticket.title}</TableCell>
+                <TableCell align="right">
+                  <Stack direction="row">
+                    {Math.floor(Math.random() * 10)}
+                    <ThumbUpIcon sx={{ height: 15, ml: 1 }} />
+                  </Stack>
+                </TableCell>
+                <TableCell align="right">{ticket.status}</TableCell>
+                <TableCell>
+                  <VisibilityIcon />
+                </TableCell>
+              </TableRow>
             ))}
-        </ol>
-      </div>
-    </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Stack>
   );
 }
 
